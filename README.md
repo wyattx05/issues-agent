@@ -1,4 +1,7 @@
-# test-repo
-This repo will be used for running any types of test I have
+# Issues-Agent
 
-I have ten fake issues posted that are being tracked though an API call.
+This repo contains two agents I made that tkae the fake issues from this repo and summerizes them.
+One uses Open AI's API key to summerize the issues and upload them to slack
+The other agent uses n8n to summerize the issues with llama 3.1 loacally and saves them as a file.
+
+
