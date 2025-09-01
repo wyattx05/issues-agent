@@ -1,14 +1,20 @@
 # Issues-Agent
 
-## About this project
+## About
 
-### This project is made up of two agents that take fake issues from this repo and summerizes them.
+Issues-Agent is a project with two automations for summarizing GitHub issues and sending them to chat platforms.
 
-## Slack Agent:
- ### This agent pulls the issues from github and summmerizes them using an Open AI API key. Then the summerization gets sent to a slack channel.
+- **Slack Agent:** Summarizes GitHub issues using OpenAI and sends them to Slack.
+- **n8n Agent:** Summarizes GitHub issues locally with Ollama and sends them to Discord.
 
-## n8n Agent
-### This agent is made though n8n, pulling the issues from github and then summerizing them locally with ollama. Then the summerization is sent out as a message to Discord.
+## How to Run
+
+- For Slack Agent setup and usage, see [`pull-agent-slack/INSTRUCTIONS.md`](pull-agent-slack/INSTRUCTIONS.md).
+- For n8n Agent setup and usage, see [`pull-agent-n8n/INSTRUCTIONS.md`](pull-agent-n8n/INSTRUCTIONS.md).
+
+---
+
+For details and step-by-step instructions, check the respective folders above.
 
 
 
