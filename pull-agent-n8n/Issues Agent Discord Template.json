@@ -1,0 +1,384 @@
+{
+  "name": "Issues Agent Discord Template",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "={{ $json.text[9] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        704,
+        2736
+      ],
+      "id": "76628849-29e4-481c-a360-1b12f816daa3",
+      "name": "Discord9",
+      "webhookId": "",
+      "credentials": {}
+    },
+    {
+      "parameters": {},
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        704,
+        1648
+      ],
+      "id": "df6738c3-2cd0-4b1c-9eb7-8379c88bf170"
+    },
+    {
+      "parameters": {
+        "resource": "repository",
+        "owner": {
+          "__rl": true,
+          "value": "YOUR_GITHUB_USERNAME",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "YOUR_REPO_NAME",
+          "mode": "name"
+        },
+        "getRepositoryIssuesFilters": {}
+      },
+      "name": "GitHub Get Issues (Custom)",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [
+        928,
+        1648
+      ],
+      "id": "a3ad4d33-0b1a-41c3-9e59-7dd2e4b016c8",
+      "name": "GitHub Get Issues (Custom)",
+      "webhookId": "",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.title }}{{ $json.body }} Summerize the github issue into three senteces. No more than three sentances.",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        1152,
+        1648
+      ],
+      "id": "a300f24a-66f5-44f7-bd94-72d90e4745de",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "model": "llama3.1:8b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        1248,
+        1872
+      ],
+      "id": "73c99457-5bf9-44e4-b660-828978e304b3",
+      "name": "Ollama Chat Model",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "text"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1552,
+        1648
+      ],
+      "id": "4eba3a7e-bf71-412d-b3a3-f82459a419ca",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "={{ $json.text[1] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        1776,
+        976
+      ],
+      "id": "ebb07cef-3292-46f4-8a44-ed1961d6178f",
+      "name": "Discord1",
+      "webhookId": ""
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "={{ $json.text[2] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        1776,
+        1168
+      ],
+      "id": "637e3f1a-5f6c-4589-8d31-35c5c0cbe2a6",
+      "name": "Discord2",
+      "webhookId": ""
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "={{ $json.text[3] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        1776,
+        1360
+      ],
+      "id": "5362f850-6c54-4d58-bbdf-c8a85cb78df2",
+      "name": "Discord3",
+      "webhookId": ""
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "={{ $json.text[4] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        1776,
+        1552
+      ],
+      "id": "ff210263-a737-4a55-8240-58ff5705722a",
+      "name": "Discord4",
+      "webhookId": ""
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "={{ $json.text[5] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        1776,
+        1744
+      ],
+      "id": "b6e2c81b-04ee-4eca-8793-d6733a59b0c2",
+      "name": "Discord5",
+      "webhookId": ""
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "={{ $json.text[6] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        1776,
+        1936
+      ],
+      "id": "4ee63e2e-d5e1-4540-b92b-730e7d1b9f21",
+      "name": "Discord6",
+      "webhookId": ""
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "={{ $json.text[7] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        1776,
+        2128
+      ],
+      "id": "06309da0-852f-47bf-a0ab-526b575de64f",
+      "name": "Discord7",
+      "webhookId": ""
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "={{ $json.text[8] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        1776,
+        2320
+      ],
+      "id": "2d41057c-1f59-41cc-9194-41b1e1dfdb70",
+      "name": "Discord8",
+      "webhookId": ""
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        1776,
+        784
+      ],
+      "id": "6e5dcb34-4225-4587-9598-c4f5fc445aca",
+      "name": "Discord",
+      "webhookId": "",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "={{ $json.text[9] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        1776,
+        2512
+      ],
+      "id": "a66c7979-22d2-47b1-b263-dc8ff3866071",
+      "name": "Discord10",
+      "webhookId": ""
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "GitHub Get Issues (Custom)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub Get Issues (Custom)": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Discord",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Discord1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Discord2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Discord3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Discord4",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Discord5",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Discord6",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Discord7",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Discord8",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Discord10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "9706a275-6e0e-4091-a477-d2d621b9e7e9",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "c0b12f2451776b8b361fb4c6eda537b4798873ea75a2aeccd73fedc9a454634b"
+  },
+  "id": "CpGz0Asc5be5tOAh",
+  "tags": []
+}
