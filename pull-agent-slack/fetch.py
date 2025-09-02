@@ -3,7 +3,6 @@ import requests
 from github import Github
 
 
-# Load environment variables
 token = os.getenv("GITHUB_TOKEN")
 openai_key = os.getenv("OPENAI_API_KEY")
 slack_webhook = os.getenv("SLACK_WEBHOOK_URL")
