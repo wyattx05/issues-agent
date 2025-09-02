@@ -21,7 +21,7 @@ It took me a while to get this automation working properly, I tried a lot of dif
 
 ### Might be an issue where you need to set up the discord nodes to be connected to the text summaries
 
-#### I will add comments to the automation soon for better guidence.
+#### I will add comments to the workflow soon for better guidence.
 #### Feel free to edit this automation however you need!
 
 ## Screenshot of the automation

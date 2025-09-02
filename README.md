@@ -13,6 +13,7 @@ Issues-Agent is a project with two automations for summarizing GitHub issues and
 - For n8n Agent setup and usage, see [`pull-agent-n8n/INSTRUCTIONS.md`](pull-agent-n8n/INSTRUCTIONS.md).
 
 ---
+Please note the issues in this repo are fake and for testing.
 
 For details and step-by-step instructions, check the respective folders above.
 
