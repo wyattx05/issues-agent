@@ -17,7 +17,7 @@ if not slack_webhook:
 g = Github(token)
 
 repo_owner = "wyattx05"
-repo_name = "test-repo"
+repo_name = "issues-agent"
 
 
 def summarize_issue(title, body):
